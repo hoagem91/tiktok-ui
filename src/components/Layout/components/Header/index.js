@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { AccountItem } from '~/components/AccountItem';
 import images from '~/assets/images';
 import styles from './Header.module.scss';
 // cho phép file scss viết được kiểu post-item
@@ -14,7 +15,7 @@ function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3]);
+            setSearchResult([]);
         }, 3000);
     }, []);
     return (
@@ -28,7 +29,13 @@ function Header() {
                     visible={searchResult.length > 0}
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                            <PopperWrapper>Ket Qua</PopperWrapper>
+                            <PopperWrapper>
+                                <h4 className={cx('search-title')}>Accounts</h4>
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                            </PopperWrapper>
                         </div>
                     )}
                 >
