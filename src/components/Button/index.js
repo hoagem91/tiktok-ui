@@ -49,13 +49,14 @@ function Button({
     } else if (href) {
         props.href = href;
         Comp = 'a';
-    } else
-        return (
-            <Comp className={classes} {...props} {...passProps}>
-                {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
-                <span className={cx('title')}>{children}</span>
-                {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
-            </Comp>
-        );
+    }
+    
+    return (
+        <Comp className={classes} {...props} {...passProps}>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx('title')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+        </Comp>
+    );
 }
 export default Button;
